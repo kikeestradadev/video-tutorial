@@ -6,10 +6,6 @@
   "homepage": "https://kikeestrada.github.io/gulp-boilerplate-2024/",
   "scripts": {
     "start": "gulp",
-    "pug": "gulp pug",
-    "scripts": "gulp scripts",
-    "images": "gulp images",
-    "sitemap": "gulp sitemap",
     "deploy": "gh-pages -d public"
   },
   "author": "Enrique Estrada",
