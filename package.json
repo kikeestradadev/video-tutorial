@@ -1,9 +1,9 @@
 {
-  "name": "gulp-boilerplate-web",
+  "name": "gulp-boilerplate-2024",
   "version": "1.0.0",
   "description": "Simple scafolding for statics web projects",
   "main": "gulpfile.babel.js",
-  "homepage": "https://kikeestrada.github.io/gulp-boilerplate-web/",
+  "homepage": "https://kikeestrada.github.io/gulp-boilerplate-2024/",
   "scripts": {
     "start": "gulp",
     "pug": "gulp pug",
@@ -15,15 +15,13 @@
   "author": "Enrique Estrada",
   "license": "GPL-2.0",
   "dependencies": {
-    "blueimp-md5": "^2.19.0",
     "ed-grid": "^3.0.2",
     "ed-ui": "0.0.5",
     "edteam-style-guides": "0.0.91",
     "gh-pages": "^6.1.1",
-    "hamburgers": "^1.2.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.29.0",
-    "tiny-slider": "^2.9.4"
+    "swiper": "^11.1.11"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
