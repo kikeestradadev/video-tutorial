@@ -18,16 +18,9 @@ import fs from 'fs';
 // Set the Sass compiler
 const sass = gulpSass(sassCompiler);
 
-async function loadImagemin() {
-    const imagemin = (await import('gulp-imagemin')).default;
-    return imagemin;
-}
-
-gulp.task('imagemin', async () => {
-    const imagemin = await loadImagemin();
+// Tarea para copiar las imágenes sin minificarlas
+gulp.task('copyImages', () => {
     return gulp.src('src/images/*')
-        .pipe(plumber())
-        .pipe(imagemin())
         .pipe(gulp.dest('public/images/'));
 });
 
@@ -67,8 +60,7 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('public/'));  // Coloca el archivo en public/
 });
 
-
-gulp.task('serve', gulp.series('pug', 'sass', 'scripts', 'imagemin', () => {
+gulp.task('serve', gulp.series('pug', 'sass', 'scripts', 'copyImages', () => {
     browserSync.init({
         server: {
             baseDir: 'public'
@@ -78,9 +70,10 @@ gulp.task('serve', gulp.series('pug', 'sass', 'scripts', 'imagemin', () => {
     gulp.watch('src/pug/**/*.pug', gulp.series('pug')).on('change', browserSync.reload);
     gulp.watch('src/scss/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
     gulp.watch('src/js/**/*.js', gulp.series('scripts')).on('change', browserSync.reload);
-    gulp.watch('src/images/*', gulp.series('imagemin')).on('change', browserSync.reload);
+    gulp.watch('src/images/*', gulp.series('copyImages')).on('change', browserSync.reload);
+    gulp.watch('src/data/example.json', gulp.series('pug')).on('change', browserSync.reload);
 }));
 
 gulp.task('dev', gulp.series('serve'));
-gulp.task('build', gulp.series('pug', 'sass', 'scripts', 'imagemin'));
+gulp.task('build', gulp.series('pug', 'sass', 'scripts', 'copyImages'));
 gulp.task('default', gulp.series('dev'));
