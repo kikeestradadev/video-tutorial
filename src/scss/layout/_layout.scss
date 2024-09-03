@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+	box-sizing							: border-box;
+}
+
+::selection {
+	color: white;
+	background: #9e852e;
+}
+:root {
+	--boder-layout						: steelblue;		// border color to see the layout
+	--boder-layout-fixed				: red;				// border color to see the layout in fixed elements
+}
+body {
+	margin      : 0;
+  //   font-family : sans-serif;
+}

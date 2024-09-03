@@ -14,15 +14,10 @@ import buffer from 'vinyl-buffer';
 import minify from 'gulp-minify';
 import data from 'gulp-data';
 import fs from 'fs';
+import log from 'fancy-log';
 
 // Set the Sass compiler
 const sass = gulpSass(sassCompiler);
-
-// Tarea para copiar las imágenes sin minificarlas
-gulp.task('copyImages', () => {
-    return gulp.src('src/images/*')
-        .pipe(gulp.dest('public/images/'));
-});
 
 gulp.task('pug', () => {
     return gulp.src('./src/pug/pages/**/*.pug')
@@ -60,7 +55,7 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('public/'));  // Coloca el archivo en public/
 });
 
-gulp.task('serve', gulp.series('pug', 'sass', 'scripts', 'copyImages', () => {
+gulp.task('serve', gulp.series('pug', 'sass', 'scripts', () => {
     browserSync.init({
         server: {
             baseDir: 'public'
@@ -70,10 +65,9 @@ gulp.task('serve', gulp.series('pug', 'sass', 'scripts', 'copyImages', () => {
     gulp.watch('src/pug/**/*.pug', gulp.series('pug')).on('change', browserSync.reload);
     gulp.watch('src/scss/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
     gulp.watch('src/js/**/*.js', gulp.series('scripts')).on('change', browserSync.reload);
-    gulp.watch('src/images/*', gulp.series('copyImages')).on('change', browserSync.reload);
     gulp.watch('src/data/example.json', gulp.series('pug')).on('change', browserSync.reload);
 }));
 
 gulp.task('dev', gulp.series('serve'));
-gulp.task('build', gulp.series('pug', 'sass', 'scripts', 'copyImages'));
+gulp.task('build', gulp.series('pug', 'sass', 'scripts'));
 gulp.task('default', gulp.series('dev'));
