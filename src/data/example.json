@@ -1,40 +1,56 @@
 {
-	"casos":
+	"example1":
 		[
 			{
 				"img": "images/img4.jpg",
-				"title": "Company 1"
+				"title": "example1 1"
 			},
 			{
 				"img": "images/img2.jpg",
-				"title": "Company 2" 
+				"title": "example1 2" 
 			},
 			{ 
 				"img": "images/img3.jpg",
-				"title": "Company 3"
+				"title": "example1 3"
 			},
 			{
 				"img": "images/img4.jpg",
-				"title": "Company 4"
+				"title": "example1 4"
 			}
 		],
-		"slider":
+		"example2":
 		[
 			{
 				"img": "images/img4.jpg",
-				"title": "slide 1"
+				"title": "example2 - 1",
+				"category": {
+					"cat1": "cat1",
+					"cat2": "cat2"
+				}
 			},
 			{
 				"img": "images/img2.jpg",
-				"title": "slide 2" 
+				"title": "example2 - 2",
+				"category": {
+					"cat1": "cat1",
+					"cat2": "cat2"
+				}
 			},
 			{ 
 				"img": "images/img3.jpg",
-				"title": "slide 3"
+				"title": "example2 - 3",
+				"category": {
+					"cat1": "cat1",
+					"cat2": "cat2"
+				}
 			},
 			{
 				"img": "images/img4.jpg",
-				"title": "slide 4"
+				"title": "example2 - 4",
+				"category": {
+					"cat1": "cat1",
+					"cat2": "cat2"
+				}
 			}
 		]
 }

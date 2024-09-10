@@ -1,18 +1,19 @@
-mixin card(cardImage, cardTitle)
+mixin example1(cardImage, cardTitle)
 	div
 		img(src=cardImage, style='width:100px')
 		p=cardTitle
--for (var i = 0; i < casos.length; i++) 
-	-var caso = casos[i]
-	+card(caso.img, caso.title) 
+- if (typeof example1 !== 'undefined' && example1.length > 0)
+-for (var i = 0; i < example1.length; i++) 
+	-var item = example1[i]
+	+example1(item.img, item.title) 
 
 
-mixin slider(cardImage, cardTitle)
+mixin example2(slideImage, slideTitle, sport, league)
 	div
-		img(src=cardImage, style='width:100px')
-		p=cardTitle
--for (var i = 0; i < slider.length; i++) 
-	-var slide = slider[i]
-	+slider(slide.img, slide.title) 
-
-
+		img(src=slideImage, style='width:100px')
+		p=slideTitle
+		p=sport
+		p=league
+-for (var i = 0; i < example2.length; i++) 
+	-var item = example2[i]
+	+example2(item.img, item.title, item.category.cat1, item.category.cat2)
