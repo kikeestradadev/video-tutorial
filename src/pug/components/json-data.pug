@@ -5,3 +5,14 @@ mixin card(cardImage, cardTitle)
 -for (var i = 0; i < casos.length; i++) 
 	-var caso = casos[i]
 	+card(caso.img, caso.title) 
+
+
+mixin slider(cardImage, cardTitle)
+	div
+		img(src=cardImage, style='width:100px')
+		p=cardTitle
+-for (var i = 0; i < slider.length; i++) 
+	-var slide = slider[i]
+	+slider(slide.img, slide.title) 
+
+
