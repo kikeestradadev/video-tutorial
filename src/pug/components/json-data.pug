@@ -2,18 +2,17 @@ mixin example1(cardImage, cardTitle)
 	div
 		img(src=cardImage, style='width:100px')
 		p=cardTitle
-- if (typeof example1 !== 'undefined' && example1.length > 0)
--for (var i = 0; i < example1.length; i++) 
-	-var item = example1[i]
-	+example1(item.img, item.title) 
-
-
+div(class='container')
+	-for (var i = 0; i < example1.length; i++) 
+		-var item = example1[i]
+		+example1(item.img, item.title) 
 mixin example2(slideImage, slideTitle, sport, league)
 	div
 		img(src=slideImage, style='width:100px')
 		p=slideTitle
 		p=sport
 		p=league
--for (var i = 0; i < example2.length; i++) 
-	-var item = example2[i]
-	+example2(item.img, item.title, item.category.cat1, item.category.cat2)
+div(class='container')
+	-for (var i = 0; i < example2.length; i++) 
+		-var item = example2[i]
+		+example2(item.img, item.title, item.category.cat1, item.category.cat2)

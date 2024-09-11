@@ -3,26 +3,26 @@
 		[
 			{
 				"img": "images/img4.jpg",
-				"title": "example1 1"
+				"title": "example_item_1"
 			},
 			{
 				"img": "images/img2.jpg",
-				"title": "example1 2" 
+				"title": "example_item_2"
 			},
 			{ 
 				"img": "images/img3.jpg",
-				"title": "example1 3"
+				"title": "example_item_3"
 			},
 			{
 				"img": "images/img4.jpg",
-				"title": "example1 4"
+				"title": "example_item_4"
 			}
 		],
 		"example2":
 		[
 			{
 				"img": "images/img4.jpg",
-				"title": "example2 - 1",
+				"title": "example2 - item 1",
 				"category": {
 					"cat1": "cat1",
 					"cat2": "cat2"
@@ -30,7 +30,7 @@
 			},
 			{
 				"img": "images/img2.jpg",
-				"title": "example2 - 2",
+				"title": "example2 - item 2",
 				"category": {
 					"cat1": "cat1",
 					"cat2": "cat2"
@@ -38,7 +38,7 @@
 			},
 			{ 
 				"img": "images/img3.jpg",
-				"title": "example2 - 3",
+				"title": "example2 - item 3",
 				"category": {
 					"cat1": "cat1",
 					"cat2": "cat2"
@@ -46,7 +46,7 @@
 			},
 			{
 				"img": "images/img4.jpg",
-				"title": "example2 - 4",
+				"title": "example2 - item 4",
 				"category": {
 					"cat1": "cat1",
 					"cat2": "cat2"
