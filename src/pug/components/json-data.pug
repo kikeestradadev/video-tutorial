@@ -2,7 +2,7 @@ mixin example1(cardImage, cardTitle)
 	div
 		img(src=cardImage, style='width:100px')
 		p=cardTitle
-div(class='container')
+div(class='container') 
 	-for (var i = 0; i < example1.length; i++) 
 		-var item = example1[i]
 		+example1(item.img, item.title) 
