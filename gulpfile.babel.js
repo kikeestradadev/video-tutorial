@@ -66,7 +66,7 @@ gulp.task('serve', gulp.series('pug', 'sass', 'scripts', () => {
     gulp.watch('src/scss/**/*.scss', gulp.series('sass')).on('change', browserSync.reload);
     gulp.watch('src/js/**/*.js', gulp.series('scripts')).on('change', browserSync.reload);
     gulp.watch('src/data/example.json', gulp.series('pug')).on('change', browserSync.reload);
-    gulp.watch('src/pug/md/**/*.md', gulp.series('pug')).on('change', browserSync.reload); // Add this line
+    gulp.watch('src/md/**/*.md', gulp.series('pug')).on('change', browserSync.reload); // Add this line
 }));
 
 
