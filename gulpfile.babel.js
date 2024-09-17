@@ -42,6 +42,7 @@ gulp.task('sass', () => {
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([cssnano()]))
         .pipe(sourcemaps.write('.'))
+		
         .pipe(gulp.dest('public/'));
 });
 
