@@ -14,7 +14,6 @@ import buffer from 'vinyl-buffer';
 import minify from 'gulp-minify';
 import data from 'gulp-data';
 import fs from 'fs';
-import log from 'fancy-log';
 import cacheBust from 'gulp-cache-bust';
 
 // Set the Sass compiler
