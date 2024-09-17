@@ -15,6 +15,7 @@ import minify from 'gulp-minify';
 import data from 'gulp-data';
 import fs from 'fs';
 import log from 'fancy-log';
+import cacheBust from 'gulp-cache-bust';
 
 // Set the Sass compiler
 const sass = gulpSass(sassCompiler);
@@ -25,7 +26,12 @@ gulp.task('pug', () => {
         .pipe(data(() => {
             return JSON.parse(fs.readFileSync('./src/data/example.json'));
         }))
-        .pipe(pug())
+        .pipe(pug({
+            pretty: true  // Esta opción asegura que el HTML no esté minificado
+        }))
+		.pipe(cacheBust({  // Aplicamos cache busting aquí
+            type: 'timestamp'  // Usamos timestamp para asegurar la actualización de cache
+        }))
         .pipe(gulp.dest('public'));
 });
 
