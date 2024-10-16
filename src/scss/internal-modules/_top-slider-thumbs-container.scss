@@ -45,10 +45,10 @@
 .tutorial-thumbs-slider{	
 	position							: absolute;
 	bottom								: 50px;
-	width								: 100%;
+	width								: calc(100% - 15px);
 	left								: 0;
 	right								: 0;
-	padding-left						: 15px;
+	margin-left							: 15px;
 	z-index								: 0;
 	
 	&__item{
