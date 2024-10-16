@@ -1,10 +1,10 @@
 const tutorialNavSlider = () => {
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Seleccionar los elementos de ambos sliders
         const singleSliderElement = document.querySelector('.tutorial-single-slider');
         const thumbsSliderElement = document.querySelector('.tutorial-thumbs-slider');
 
-        // Validar que ambos elementos existan
+        // Validar que ambos sliders existan
         if (!singleSliderElement || !thumbsSliderElement) return;
 
         // Inicializar el slider de thumbnails
@@ -12,7 +12,7 @@ const tutorialNavSlider = () => {
             direction: 'horizontal',
             loop: false,
             slidesPerView: 'auto',
-            spaceBetween: 15,
+            spaceBetween: 7,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
             a11y: {
@@ -40,6 +40,19 @@ const tutorialNavSlider = () => {
                 slideLabelMessage: "Slide {{index}} of {{slidesLength}}",
                 slideRole: null,
             },
+        });
+
+        // Agregar funcionalidad de selección a los thumbnails
+        const thumbsSlides = document.querySelectorAll('.tutorial-thumbs-slider__item');
+
+        thumbsSlides.forEach((slide) => {
+            slide.addEventListener('click', function () {
+                // Remover la clase 'selected' de todos los items
+                thumbsSlides.forEach((s) => s.classList.remove('selected'));
+
+                // Agregar la clase 'selected' al item clicado
+                this.classList.add('selected');
+            });
         });
     });
 };

@@ -55,16 +55,24 @@
 		position						: relative; 
 		width							: 267px;
 		height							: 165px;
-		border-radius					: 8px;
+		border-radius					: 16px;
 		overflow						: hidden;
 		text-decoration					: none;		
 		display							: flex;
 		flex-direction					: column;
 		justify-content					: flex-end;
-		
+		border							: 2px solid transparent;
+		&.selected{			
+			border-color: #e0ac42;
+		}
 		@include from(m){
 			width							: 432px;
 			height							: 246px;
+		}
+		@include from(l){
+			&:hover {
+				border-color: white; // Cambiar solo el color en el hover
+			}
 		}
 		@include from(lg){
 			width							: 456px;
