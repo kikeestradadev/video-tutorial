@@ -3,7 +3,7 @@
 	width: 100%;
 	max-width: 2500px;
 	position: relative;
-	border: 1px solid red;
+	// border: 1px solid red;
 	min-height     	: calc(100vh - var(--header-height));
 	@include from (lg){
 		min-height: 980px;
