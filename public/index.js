@@ -2,12 +2,14 @@
 "use strict";
 
 var _internalModule = _interopRequireDefault(require("./modules/internalModule"));
+var _tutorialNavSlider = _interopRequireDefault(require("./modules/tutorialNavSlider"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 (function () {
   (0, _internalModule["default"])();
+  (0, _tutorialNavSlider["default"])();
 })();
 
-},{"./modules/internalModule":2}],2:[function(require,module,exports){
+},{"./modules/internalModule":2,"./modules/tutorialNavSlider":3}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18,6 +20,61 @@ var internalModule = function internalModule() {
   console.log('Hola internal Module');
 };
 var _default = exports["default"] = internalModule;
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var tutorialNavSlider = function tutorialNavSlider() {
+  document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionar los elementos de ambos sliders
+    var singleSliderElement = document.querySelector('.tutorial-single-slider');
+    var thumbsSliderElement = document.querySelector('.tutorial-thumbs-slider');
+
+    // Validar que ambos elementos existan
+    if (!singleSliderElement || !thumbsSliderElement) return;
+
+    // Inicializar el slider de thumbnails
+    var tutorialThumbsSlider = new Swiper('.tutorial-thumbs-slider', {
+      direction: 'horizontal',
+      loop: false,
+      slidesPerView: 'auto',
+      spaceBetween: 15,
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+      a11y: {
+        enabled: true,
+        slideLabelMessage: "Slide {{index}} of {{slidesLength}}",
+        slideRole: null // Custom role for slide
+      }
+    });
+
+    // Inicializar el slider principal sin permitir swipe manual
+    var tutorialSingleSlider = new Swiper('.tutorial-single-slider', {
+      effect: 'fade',
+      speed: 800,
+      autoHeight: true,
+      fadeEffect: {
+        crossFade: true
+      },
+      watchOverflow: true,
+      allowTouchMove: false,
+      // Desactiva swipe manual
+      thumbs: {
+        swiper: tutorialThumbsSlider // Conectar ambos sliders
+      },
+      a11y: {
+        enabled: true,
+        slideLabelMessage: "Slide {{index}} of {{slidesLength}}",
+        slideRole: null
+      }
+    });
+  });
+};
+var _default = exports["default"] = tutorialNavSlider;
 
 },{}]},{},[1]);
 
