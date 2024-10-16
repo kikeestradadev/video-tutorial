@@ -34,7 +34,7 @@ var tutorialNavSlider = function tutorialNavSlider() {
     var singleSliderElement = document.querySelector('.tutorial-single-slider');
     var thumbsSliderElement = document.querySelector('.tutorial-thumbs-slider');
 
-    // Validar que ambos elementos existan
+    // Validar que ambos sliders existan
     if (!singleSliderElement || !thumbsSliderElement) return;
 
     // Inicializar el slider de thumbnails
@@ -42,7 +42,7 @@ var tutorialNavSlider = function tutorialNavSlider() {
       direction: 'horizontal',
       loop: false,
       slidesPerView: 'auto',
-      spaceBetween: 15,
+      spaceBetween: 7,
       watchSlidesVisibility: true,
       watchSlidesProgress: true,
       a11y: {
@@ -71,6 +71,20 @@ var tutorialNavSlider = function tutorialNavSlider() {
         slideLabelMessage: "Slide {{index}} of {{slidesLength}}",
         slideRole: null
       }
+    });
+
+    // Agregar funcionalidad de selección a los thumbnails
+    var thumbsSlides = document.querySelectorAll('.tutorial-thumbs-slider__item');
+    thumbsSlides.forEach(function (slide) {
+      slide.addEventListener('click', function () {
+        // Remover la clase 'selected' de todos los items
+        thumbsSlides.forEach(function (s) {
+          return s.classList.remove('selected');
+        });
+
+        // Agregar la clase 'selected' al item clicado
+        this.classList.add('selected');
+      });
     });
   });
 };
