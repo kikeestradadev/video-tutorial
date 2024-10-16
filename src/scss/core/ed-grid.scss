@@ -1,15 +1,15 @@
 // Configuraciones
 $prototype        : true !default;
-$dev              : true !default;
+$dev              : false !default;
 $dev-hover        : false !default;
 $max-width        : 1440px !default;
 $l-unit           : .5rem !default;
 $gap              : $l-unit * 4 !default;  // 2rem
-$fractions        : 1,2,3,4,5,6,7,8,9,10,11,12 !default;
+$fractions        : 1,2,3,4,5,6,7,8,9,10 !default;
 $container        : ed-container !default;
 $item             : ed-item !default;
 $grid-container   : ed-grid !default;
-$max-grid-columns : 12 !default;
+$max-grid-columns : 10 !default;
 $legacy           : false !default;
 
 // Breakpoints
@@ -21,8 +21,7 @@ $breakpoints : (
 	lg		: 1280px,
 	xl		: 1600px,
 	xxl		: 1800px, 
-	xxxl	: 1920px,
-	xxxxl	: 6000px,
+	xxxl	: 1920px
 ) !default;
 
 $sizes: map-keys($breakpoints);

@@ -77,6 +77,11 @@ gulp.task('scripts', () => {
         .pipe(gulp.dest('public/'));  // Coloca el archivo en public/
 });
 
+gulp.task('images', () => {
+	gulp.src('./src/img/**/**')
+		.pipe(gulp.dest('./public/assets/img'))
+});
+
 gulp.task('serve', gulp.series('pug', 'sass', 'scripts', () => {
     browserSync.init({
         server: {
@@ -89,6 +94,7 @@ gulp.task('serve', gulp.series('pug', 'sass', 'scripts', () => {
     gulp.watch('src/js/**/*.js', gulp.series('scripts')).on('change', browserSync.reload);
     gulp.watch('src/data/**/*.json', gulp.series('pug')).on('change', browserSync.reload);
     gulp.watch('src/md/**/*.md', gulp.series('pug')).on('change', browserSync.reload); // Add this line
+	gulp.watch('/src/img/**/**', gulp.series('images')).on('change', browserSync.reload); // Add this line
 }));
 
 
