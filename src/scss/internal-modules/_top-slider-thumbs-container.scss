@@ -164,17 +164,17 @@
 		justify-content					: flex-end;
 		border							: 2px solid transparent;
 		&.selected{			
-			border-color: #e0ac42;
+			border-color: #ffffff;
 		}
 		@include from(m){
 			width							: 350px;
-			height							: 220px;
+			height							: 220px; 
 		}
-		@include from(l){
-			&:hover {
-				border-color: white; // Cambiar solo el color en el hover
-			}
-		}
+		// @include from(l){
+		// 	&:hover {
+		// 		border-color: white; // Cambiar solo el color en el hover
+		// 	}
+		// }
 	}
 	&__text-container{
 		position: absolute;
