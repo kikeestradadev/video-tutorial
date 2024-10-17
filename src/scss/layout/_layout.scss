@@ -42,7 +42,11 @@ body {
 	z-index: 1000;
 	
 }
-.main-container{}
+.main-container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .main-footer {
 	background 		: var(--footer-bg);
 	color      		: #FFF;
