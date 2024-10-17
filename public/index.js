@@ -75,15 +75,25 @@ var tutorialNavSlider = function tutorialNavSlider() {
 
     // Agregar funcionalidad de selección a los thumbnails
     var thumbsSlides = document.querySelectorAll('.tutorial-thumbs-slider__item');
+
+    // Función para manejar la selección del slide
+    var handleSlideSelection = function handleSlideSelection(slide) {
+      // Remover la clase 'selected' de todos los items
+      thumbsSlides.forEach(function (s) {
+        return s.classList.remove('selected');
+      });
+
+      // Agregar la clase 'selected' al item clicado
+      slide.classList.add('selected');
+    };
+
+    // Asignar eventos a cada slide
     thumbsSlides.forEach(function (slide) {
       slide.addEventListener('click', function () {
-        // Remover la clase 'selected' de todos los items
-        thumbsSlides.forEach(function (s) {
-          return s.classList.remove('selected');
-        });
-
-        // Agregar la clase 'selected' al item clicado
-        this.classList.add('selected');
+        handleSlideSelection(this);
+      });
+      slide.addEventListener('touchstart', function () {
+        handleSlideSelection(this);
       });
     });
   });

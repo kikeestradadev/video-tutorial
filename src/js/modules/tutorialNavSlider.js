@@ -45,13 +45,23 @@ const tutorialNavSlider = () => {
         // Agregar funcionalidad de selección a los thumbnails
         const thumbsSlides = document.querySelectorAll('.tutorial-thumbs-slider__item');
 
+        // Función para manejar la selección del slide
+        const handleSlideSelection = (slide) => {
+            // Remover la clase 'selected' de todos los items
+            thumbsSlides.forEach((s) => s.classList.remove('selected'));
+
+            // Agregar la clase 'selected' al item clicado
+            slide.classList.add('selected');
+        };
+
+        // Asignar eventos a cada slide
         thumbsSlides.forEach((slide) => {
             slide.addEventListener('click', function () {
-                // Remover la clase 'selected' de todos los items
-                thumbsSlides.forEach((s) => s.classList.remove('selected'));
+                handleSlideSelection(this);
+            });
 
-                // Agregar la clase 'selected' al item clicado
-                this.classList.add('selected');
+            slide.addEventListener('touchstart', function () {
+                handleSlideSelection(this);
             });
         });
     });
