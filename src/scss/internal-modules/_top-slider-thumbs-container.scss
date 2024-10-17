@@ -23,7 +23,7 @@
 		display							: flex;
 		justify-content					: center;
 		align-items						: flex-start;
-		border							: 2px solid green;
+		// border							: 2px solid green;
 		min-height     					: 100vh;
 		@include from(sm){
 			min-height     					: 900px;
