@@ -9,6 +9,7 @@ html(lang='en' prefix='og: http://ogp.me/ns#', class='no-js')
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+		<link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
 		link(rel="stylesheet" href="styles.css")
 		title= currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName
 	body(class=currentPage, itemscope itemtype="http://schema.org/WebPage")
@@ -26,5 +27,6 @@ html(lang='en' prefix='og: http://ogp.me/ns#', class='no-js')
 			block main-footer
 		//- here ends the Main Footer
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
 		script(src="index.js")
 		block scripts
