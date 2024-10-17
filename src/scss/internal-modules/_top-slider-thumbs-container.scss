@@ -1,15 +1,13 @@
 .top-slider-thumbs-container{
-	margin: 0 auto;
-	width: 100%;
-	max-width: 2500px;
-	position: relative;
-	// border: 1px solid red;
-	min-height     	: calc(100vh - var(--header-height));
+	margin								: 0 auto;
+	width								: 100%;
+	max-width							: 2500px;
+	position							: relative;
+	min-height     						: calc(100vh - var(--header-height));
 	@include from (lg){
-		min-height: 876px;
+		min-height						: 876px;
 	}
 }
-
 .tutorial-single-slider{
 	z-index								: 0 !important;
 	&__item{
@@ -20,127 +18,130 @@
 		text-decoration					: none;
 	}
 	&__container{
-		position: relative;
-		min-height     	: calc(100vh - var(--header-height));
+		position						: relative;
+		min-height     					: calc(100vh - var(--header-height));
+		display							: flex;
+		justify-content					: center;
+		align-items						: flex-start;
+		// border							: 1px solid green;
 		@include from (lg){
-			min-height: 876px;
+			min-height					: 876px;
 		}
 	}
 	&__text-container{
-		position: relative;
-		// border: 1px solid white;
-		width: 100%;
-		max-width: 1600px;
-		margin: 0 auto;
-		min-height     	: calc(100vh - 280px);
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: 0 15px;
+		padding         				: 0 15px 0 15px;
+		position						: relative;
+		// border							: 4px solid yellow;
+		width							: 100%;
+		max-width						: 1600px;
+		margin-top						: var(--header-height);		
+		min-height     					: calc(100vh - 320px);
+		display							: flex;
+		flex-direction					: column;
+		justify-content					: center;
 		@include from(m){
-			min-height     	: calc(100vh - 335px);
+			min-height     				: calc(100vh - 380px);
 		}
-		@include from(xl){
-			justify-content: space-around;
-			
+		@include from(l){
+			min-height     				: calc(100vh - 410px);
 		}
-		
+		@include from(lg){
+			min-height     				: calc(100vh - 300px);
+		}
 	}
 	&__category{
-		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
-		text-shadow: 5px 5px 10px rgba(0, 7, 15, 0.25);
-		font-family: Montserrat;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 800;
-		line-height: 132%; /* 23.76px */
-		letter-spacing: 5.4px;
-		text-transform: uppercase;
-		display: block;
+		color							: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		text-shadow						: 5px 5px 10px rgba(0, 7, 15, 0.25);
+		font-family						: Montserrat;
+		font-size						: 16px;
+		font-style						: normal;
+		font-weight						: 800;
+		line-height						: 132%; /* 23.76px */
+		letter-spacing					: 5.4px;
+		text-transform					: uppercase;
+		display							: block;
 	}	
 	&__title{
-		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
-		/* Desktop/Display/Display2 */
-		font-family: Montserrat;
-		font-size: 48px;
-		font-style: normal;
-		font-weight: 800;
-		line-height: 100%; /* 93px */
-		letter-spacing: -0.93px;
-		text-transform: capitalize;
-		display: block;
-		margin: 15px 0;		
+		color							: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		font-family						: Montserrat;
+		font-size						: 48px;
+		font-style						: normal;
+		font-weight						: 800;
+		line-height						: 100%; /* 93px */
+		letter-spacing					: -0.93px;
+		text-transform					: capitalize;
+		display							: block;
+		margin							: 15px 0;		
 		@include from(l){
-			font-size: 60px;
+			font-size					: 60px;
 		}
 	}
 	&__sub-title{
-		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
-		/* Desktop/Heading/Heading4 */
-		font-family: Montserrat;
-		font-size: 20px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 120%; /* 37.2px */
-		letter-spacing: -0.31px;
-		margin: 0 0 15px 0;
+		color							: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		font-family						: Montserrat;
+		font-size						: 20px;
+		font-style						: normal;
+		font-weight						: 700;
+		line-height						: 120%; /* 37.2px */
+		letter-spacing					: -0.31px;
+		margin							: 0 0 15px 0;
 		@include from(l){
-			font-size: 30px;
+			font-size					: 30px;
 		}	
 		
 	}
 	&__description{
-		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
-		text-shadow: 5px 5px 10px rgba(0, 7, 15, 0.25);
-		font-family: Montserrat;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 180%; /* 32.4px */
-		letter-spacing: -0.18px;
+		color							: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		text-shadow						: 5px 5px 10px rgba(0, 7, 15, 0.25);
+		font-family						: Montserrat;
+		font-size						: 14px;
+		font-style						: normal;
+		font-weight						: 500;
+		line-height						: 180%; /* 32.4px */
+		letter-spacing					: -0.18px;
 		@include from(l){
-			max-width: 700px;
-			font-size: 16px;
+			max-width					: 700px;
+			font-size					: 16px;
 		}
 	}
 	&__play{
-		width: 100%;
-		height: 55px;
-		border-radius: 4px;
-		background: linear-gradient(0deg, #E465EE 0%, #E465EE 100%), linear-gradient(0deg, var(--Color-Accent, #DD3EEA) 0%, var(--Color-Accent, #DD3EEA) 100%), conic-gradient(from 166deg at 0% 0%, #390E4F 0deg, #510F7A 113.39999914169312deg, #A21FCF 233.99999141693115deg, #B32AB6 333.0000042915344deg, #F046FF 360deg), var(--Color-Alias-Foreground-surface-Icon-Button-Default, #515151);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: #000;
-		text-align: center;
-		font-family: Montserrat;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 90%; /* 16.2px */
-		letter-spacing: -0.18px;	
-		margin: 15px 0;
-		cursor: pointer;
+		width							: 100%;
+		height							: 55px;
+		border-radius					: 4px;
+		background						: linear-gradient(0deg, #E465EE 0%, #E465EE 100%), linear-gradient(0deg, var(--Color-Accent, #DD3EEA) 0%, var(--Color-Accent, #DD3EEA) 100%), conic-gradient(from 166deg at 0% 0%, #390E4F 0deg, #510F7A 113.39999914169312deg, #A21FCF 233.99999141693115deg, #B32AB6 333.0000042915344deg, #F046FF 360deg), var(--Color-Alias-Foreground-surface-Icon-Button-Default, #515151);
+		display							: flex;
+		align-items						: center;
+		justify-content					: center;
+		color							: #000;
+		text-align						: center;
+		font-family						: Montserrat;
+		font-size						: 14px;
+		font-style						: normal;
+		font-weight						: 700;
+		line-height						: 90%; /* 16.2px */
+		letter-spacing					: -0.18px;	
+		margin							: 15px 0;
+		cursor							: pointer;
 		@include from(sm){
-			max-width: 260px;
-			font-size: 18px;
+			max-width					: 260px;
+			font-size					: 18px;
 		}
 	}
 	&__play > img{
-		margin-right: 10px;
+		margin-right					: 10px;
 	}
 	
 	&__bg-img{
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		object-fit: cover;
+		width							: 100%;
+		height							: 100%;
+		position						: absolute;
+		top								: 0;
+		left							: 0;
+		object-fit						: cover;
 	}
 	&__title{
-		color: white;
-		z-index: 1000;
+		color							: white;
+		z-index							: 1000;
 	}
 }
 .tutorial-thumbs-slider{	
@@ -163,55 +164,50 @@
 		flex-direction					: column;
 		justify-content					: flex-end;
 		border							: 2px solid transparent;
-		// &.selected{			
-		// 	border-color: #ffffff;
-		// }
 		@include from(m){
-			width							: 350px;
-			height							: 220px; 
+			width						: 350px;
+			height						: 216px; 
 		}
-		// @include from(l){
-		// 	&:hover {
-		// 		border-color: white; // Cambiar solo el color en el hover
-		// 	}
-		// }
 	}
 	&__text-container{
-		position: absolute;
-		bottom: 0;
+		position						: absolute;
+		bottom							: 0;
 		width							: 100%;
-		min-height: 60px;
-		padding: 15px;
-		display: flex;
-		flex-direction: column;
-		background: rgba(0, 0, 0, 0.35);
-		backdrop-filter: blur(7px);
+		min-height						: 60px;
+		padding							: 10px 15px;
+		display							: flex;
+		flex-direction					: column;
+		background						: rgba(0, 0, 0, 0.35);
+		backdrop-filter					: blur(7px);
+		@include from(sm){
+			padding						: 15px;
+		}
 	}
 	&__item-title{
-		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
-
-		/* Desktop/Body/Bold/Text SM */
-		font-family: Montserrat;
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 700;
-		line-height: 180%; /* 25.2px */
-		letter-spacing: -0.14px;
-		
+		color							: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		font-family						: Montserrat;
+		font-size						: 10px;
+		font-style						: normal;
+		font-weight						: 700;
+		line-height						: 180%; /* 25.2px */
+		letter-spacing					: -0.14px;
+		@include from(sm){
+			font-size					: 14px;
+		}		
 	}
 	&__item-description{
-		color: var(--Color-Alias-Foreground-surface-Button-White, #FFF);
-		/* Text SM */
-		font-family: Montserrat;
-		font-size: 12px;
-		font-style: normal;
-		font-weight: 300;
-		line-height: 16px; /* 133.333% */
-		
+		color							: var(--Color-Alias-Foreground-surface-Button-White, #FFF);
+		font-family						: Montserrat;
+		font-size						: 10px;
+		font-style						: normal;
+		font-weight						: 300;
+		line-height						: 16px; /* 133.333% */
+		@include from(sm){
+			font-size					: 12px;
+		}		
 	}
 }
-
 .swiper-slide-thumb-active{
-	border							: 2px solid transparent;
-	border-color: white;
+	border								: 2px solid transparent;
+	border-color						: white;
 }

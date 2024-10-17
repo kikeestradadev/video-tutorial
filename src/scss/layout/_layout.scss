@@ -7,7 +7,7 @@
 	//native color vars	
 	--header-bg      		: #007BDF;
 	--body-bg      			: #ffffff;
-	--footer-bg      		: #007BDF;
+	--footer-bg      		: #000000;
 
 }
 *,
@@ -26,14 +26,15 @@ strong {
 }
 
 body {
-	margin         	: var(--header-height) 0 0 0;
+	margin         	: 0;
 	min-height     	: calc(100vh - var(--header-height));
 	background 		: var(--body-bg);
 	display        	: flex;
 	flex-direction 	: column;
 }
 .main-header{
-	background 		: var(--header-bg);
+	background: rgba(0, 0, 0, 0.50);
+	backdrop-filter: blur(2px);
 	min-height     	: var(--header-height);
 	position: fixed;
 	top: 0;
@@ -45,7 +46,22 @@ body {
 .main-footer {
 	background 		: var(--footer-bg);
 	color      		: #FFF;
-	padding    		: 2rem 0;
-	font-size  		: fontSize(small);
+	padding    		: 15px;
 	margin-top 		: auto;
+	min-height		: 90px;
+	display: flex;
+	align-items: center;
+	justify-content:center;
+	@include from(m){
+		min-height: 180px;
+	}
+	&__copy{
+		color: var(--Color-Alias-Text-Inverted, #F4F4F4);
+		text-align: center;
+		font-family: Montserrat;
+		font-size: 12px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
+	}
 }
