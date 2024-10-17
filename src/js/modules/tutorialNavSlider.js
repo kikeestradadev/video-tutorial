@@ -12,7 +12,7 @@ const tutorialNavSlider = () => {
             direction: 'horizontal',
             loop: false,
             slidesPerView: 'auto',
-            spaceBetween: 7,
+            spaceBetween: 15,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
             a11y: {

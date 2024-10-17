@@ -4,13 +4,24 @@ section(class='top-slider-thumbs-container')
 			-for(let i=1; i <=10; i++)
 				div(class='swiper-slide tutorial-single-slider__item')
 					div(class='tutorial-single-slider__container')
-						img(src="images/bitcoin-bg-video.webp", class='tutorial-single-slider__bg-img' alt="")
-						h1(class='tutorial-single-slider__title') Item #{i}
+						img(src="images/bitcoin-bg-video2.webp", class='tutorial-single-slider__bg-img' alt="")
+						div(class='tutorial-single-slider__text-container')
+							div(class='s-column')
+								span(class='tutorial-single-slider__category') Full Cash App:
+								span(class='tutorial-single-slider__title') Bitcoin Tutorial #{i}
+								span(class='tutorial-single-slider__sub-title from-m') Introduction
+								span(class='tutorial-single-slider__description from-m') Dive into our collection of easy-to-follow video tutorials designed to make depositing funds for your online gaming adventures a breeze.
+								span(class='tutorial-single-slider__play') 
+									img(src="images/play_arrow.svg", alt="")
+									|WATCH NOW.
+							div(class='s-column')
+								span(class='tutorial-single-slider__sub-title from-m') Featured
+								span(class='tutorial-single-slider__description from-m') Whether you're a seasoned gamer or a newcomer, our step-by-step guides will ensure you spend less time figuring out payments and more time enjoying your favorite games. 
 	div(class='swiper tutorial-thumbs-slider')
 		div(class='swiper-wrapper')
 			-for(let i = 1; i<=10; i++ )
 				div(class='swiper-slide tutorial-thumbs-slider__item')
-					img(src="images/thumbnail.webp", alt="")
+					img(src="images/thumbnail.webp", alt="") 
 					div(class='tutorial-thumbs-slider__text-container')
 						span(class='tutorial-thumbs-slider__item-title') Lorem ipsum dolor sit amet item #{i}
 						span(class='tutorial-thumbs-slider__item-description') Lorem, ipsum dolor. 
