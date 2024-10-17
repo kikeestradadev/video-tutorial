@@ -5,7 +5,7 @@
 	position							: relative;
 	// border								: 2px solid red;
 	background-color					: #000000;
-	min-height     						: 100vh;
+	// min-height     						: 100vh;
 	overflow							: hidden;
 }
 .tutorial-single-slider{
@@ -17,15 +17,17 @@
 		width							: 100%;
 		overflow						: hidden;
 		text-decoration					: none;
-		min-height     					: 100vh;
 	}
 	&__container{
 		position						: relative;
 		display							: flex;
 		justify-content					: center;
 		align-items						: flex-start;
-		// border							: 2px solid green;
+		border							: 2px solid green;
 		min-height     					: 100vh;
+		@include from(sm){
+			min-height     					: 900px;
+		}
 	}
 	&__text-container{
 		padding         				: 0 15px 0 15px;
