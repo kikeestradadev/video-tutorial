@@ -26,32 +26,42 @@ var internalModal = function internalModal() {
   // Selecciona todos los botones de play que abren el modal
   var playButtons = document.querySelectorAll('.tutorial-single-slider__play');
 
-  // Selecciona los elementos del modal que cambiarán
+  // Selecciona los elementos del modal y del video
   var videoElement = document.getElementById('videoElement');
   var videoSource = document.getElementById('videoSource');
+  var modal = document.getElementById('exampleModalToggle1');
 
   // Añade un event listener a cada botón de play
   playButtons.forEach(function (button) {
     button.addEventListener('click', function () {
-      // Obtén la URL del video desde el atributo data-video-url
-      var videoUrl = button.getAttribute('data-video-url');
-
-      // Actualiza la fuente del video en el modal
-      videoSource.src = videoUrl;
-
-      // Recarga el video y lo reproduce automáticamente al abrir el modal
-      videoElement.load();
-      videoElement.play();
+      var videoUrl = button.getAttribute('data-video-url'); // Obtiene la URL del video
+      videoSource.src = videoUrl; // Actualiza la fuente del video
+      videoElement.load(); // Recarga el video
+      videoElement.play(); // Reproduce el video automáticamente
     });
   });
 
-  // Limpia y reinicia el video cuando se cierra el modal
-  var modal = document.getElementById('exampleModalToggle1');
+  // Evento al cerrar el modal manualmente
   modal.addEventListener('hidden.bs.modal', function () {
+    resetVideo(); // Limpia y reinicia el video
+  });
+
+  // Evento al salir de pantalla completa
+  document.addEventListener('fullscreenchange', function () {
+    var isFullScreen = document.fullscreenElement === videoElement;
+    if (!isFullScreen) {
+      resetVideo(); // Limpia y reinicia el video
+      var bootstrapModal = bootstrap.Modal.getInstance(modal);
+      bootstrapModal.hide(); // Cierra la modal
+    }
+  });
+
+  // Función para limpiar y reiniciar el video
+  var resetVideo = function resetVideo() {
     videoElement.pause(); // Pausa el video
     videoElement.currentTime = 0; // Reinicia el tiempo del video
     videoSource.src = ''; // Limpia la fuente del video
-  });
+  };
 };
 
 // Exportar la función
@@ -68,23 +78,22 @@ var internalModalCategory = function internalModalCategory() {
   // Selecciona todos los ítems del slider de categoría
   var categorySliderItems = document.querySelectorAll('.tutorial-category-slider__item');
 
-  // Selecciona los elementos del modal que cambiarán
+  // Selecciona los elementos del modal y del video
   var videoElement = document.getElementById('videoElement');
   var videoSource = document.getElementById('videoSource');
+  var modal = document.getElementById('exampleModalToggle1');
 
   // Añade un event listener a cada ítem del slider de categoría
   categorySliderItems.forEach(function (item) {
     item.addEventListener('click', function () {
-      // Obtén la URL del video desde el atributo data-video-url
       var videoUrl = item.getAttribute('data-video-url');
       if (videoUrl) {
-        // Actualiza la fuente del video en el modal
-        videoSource.src = videoUrl;
+        videoSource.src = videoUrl; // Actualiza la fuente del video
+        videoElement.load(); // Recarga el video
+        videoElement.muted = false; // Habilita el sonido
+        videoElement.volume = 1.0; // Volumen máximo
 
-        // Recarga el video y lo reproduce automáticamente con sonido
-        videoElement.load();
-        videoElement.muted = false; // Asegúrate de que el audio esté activado
-        videoElement.volume = 1.0; // Volumen al máximo
+        // Intenta reproducir el video y maneja posibles errores de autoplay
         videoElement.play()["catch"](function (error) {
           console.warn('Autoplay con sonido bloqueado:', error);
         });
@@ -92,13 +101,27 @@ var internalModalCategory = function internalModalCategory() {
     });
   });
 
-  // Limpia el video cuando se cierra el modal
-  var modal = document.getElementById('exampleModalToggle1');
+  // Evento al cerrar el modal manualmente
   modal.addEventListener('hidden.bs.modal', function () {
+    resetVideo(); // Limpia y reinicia el video
+  });
+
+  // Evento para detectar si el video sale de pantalla completa
+  document.addEventListener('fullscreenchange', function () {
+    var isFullScreen = document.fullscreenElement === videoElement;
+    if (!isFullScreen) {
+      resetVideo(); // Limpia y reinicia el video
+      var bootstrapModal = bootstrap.Modal.getInstance(modal);
+      bootstrapModal.hide(); // Cierra la modal
+    }
+  });
+
+  // Función para limpiar y reiniciar el video
+  var resetVideo = function resetVideo() {
     videoElement.pause(); // Pausa el video
     videoElement.currentTime = 0; // Reinicia el tiempo del video
     videoSource.src = ''; // Limpia la fuente del video
-  });
+  };
 };
 
 // Exportar la función para usarla en tu proyecto
