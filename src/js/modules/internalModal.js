@@ -1,45 +1,37 @@
 const internalModal = () => {
-    // Selecciona todos los botones de play que abren el modal
-    const playButtons = document.querySelectorAll('.tutorial-single-slider__play');
+    // Inicializa el reproductor con video.js
+    const player = videojs('videoElement', { controls: false, autoplay: true, loop: true, muted: false });
 
-    // Selecciona los elementos del modal y del video
-    const videoElement = document.getElementById('videoElement');
-    const videoSource = document.getElementById('videoSource');
+    const playButtons = document.querySelectorAll('.tutorial-single-slider__play');
     const modal = document.getElementById('exampleModalToggle1');
 
-    // Añade un event listener a cada botón de play
     playButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const videoUrl = button.getAttribute('data-video-url'); // Obtiene la URL del video
-            videoSource.src = videoUrl; // Actualiza la fuente del video
-            videoElement.load(); // Recarga el video
-            videoElement.play(); // Reproduce el video automáticamente
+            const videoUrl = button.getAttribute('data-video-url');
+            if (videoUrl) {
+                player.src({ src: videoUrl, type: 'video/mp4' });
+                player.play();
+            }
         });
     });
 
-    // Evento al cerrar el modal manualmente
     modal.addEventListener('hidden.bs.modal', () => {
-        resetVideo(); // Limpia y reinicia el video
+        resetVideo();
     });
 
-    // Evento al salir de pantalla completa
     document.addEventListener('fullscreenchange', () => {
-        const isFullScreen = document.fullscreenElement === videoElement;
-
-        if (!isFullScreen) {
-            resetVideo(); // Limpia y reinicia el video
-            const bootstrapModal = bootstrap.Modal.getInstance(modal);
-            bootstrapModal.hide(); // Cierra la modal
+        if (!document.fullscreenElement) {
+            resetVideo();
+            bootstrap.Modal.getInstance(modal).hide();
         }
     });
 
-    // Función para limpiar y reiniciar el video
     const resetVideo = () => {
-        videoElement.pause(); // Pausa el video
-        videoElement.currentTime = 0; // Reinicia el tiempo del video
-        videoSource.src = ''; // Limpia la fuente del video
+        player.pause();
+        player.currentTime(0);
+        player.src(''); 
+        player.controls(false); // Oculta los controles
     };
 };
 
-// Exportar la función
 export default internalModal;
