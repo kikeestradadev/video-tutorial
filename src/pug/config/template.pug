@@ -29,16 +29,14 @@ html(lang='en' prefix='og: http://ogp.me/ns#', class='no-js')
 		//- here ends the Main Footer
 		// Modal 1
 		div(id='exampleModalToggle1' class='modal fade modal-fullscreen-sm-down' aria-hidden='true' aria-labelledby='exampleModalToggleLabel1' tabindex='-1')
-			.modal-dialog.modal-dialog-centered.video-filter-modal
+			.modal-dialog.modal-dialog-centered.video-filter-modal.modal-xl
 				.modal-content
 					.modal-body
 						img(src="https://img.betanysports.eu/landing/videos/close.svg", alt="close" class='video-filter-modal__close-modal' data-bs-dismiss='modal')
 						video(id='videoElement' width='100%' height='auto' controls autoplay loop muted)
 							source(id='videoSource' src='' type='video/mp4')
-
 		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 		<script src="https://vjs.zencdn.net/8.16.1/video.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 		script(src="index.js")
-		
-		block scripts
+		block scripts 
