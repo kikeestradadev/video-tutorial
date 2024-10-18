@@ -20,6 +20,7 @@
 .tutorial-category-slider{	
 	z-index								: 0;
 	&__item{
+		cursor: pointer;
 		position						: relative;
 		width							: 250px;
 		height							: 230px;

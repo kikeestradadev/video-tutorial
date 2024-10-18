@@ -2,9 +2,18 @@ section(class='tutorial-slider-category-container')
 	h2(class='tutorial-slider-category-container__title') Step-by-Step Guides
 	div(class='swiper tutorial-category-slider')
 		div(class='swiper-wrapper')
-			-for(let i = 1; i<=10; i++ )
-				a(href="https://www.google.com/" class='swiper-slide tutorial-category-slider__item')
-					div(class='tutorial-category-slider__image-container', style="background-image: url('images/thumbnail.webp')")
+			- for (var i = 0; i < thumbSlider.length; i++)
+				- var item = thumbSlider[i]
+				div(
+					class='swiper-slide tutorial-category-slider__item'
+					data-bs-toggle='modal' 
+					data-bs-target='#exampleModalToggle1'
+					data-video-url=item.ctaurl
+					)
+					div(
+                        class='tutorial-category-slider__image-container'
+                        style=`background-image: url('${item.thumbimage}')`
+                    )
 					div(class='tutorial-category-slider__text-cointainer')
-						span(class='tutorial-category-slider__item-title') Full Cash App + Bitcoin Tutorial
-						span(class='tutorial-category-slider__item-date') Learn how to connect your Full Cash App with your bitcoin Wallet.
+						span(class='tutorial-category-slider__item-title')= item.category
+						span(class='tutorial-category-slider__item-date')= item.title

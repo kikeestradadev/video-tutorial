@@ -15,19 +15,9 @@ const internalModal = () => {
             // Actualiza la fuente del video en el modal
             videoSource.src = videoUrl;
 
-            // Espera a que la fuente se cargue y reproduce con sonido
+            // Recarga el video y lo reproduce automáticamente al abrir el modal
             videoElement.load();
-            videoElement.muted = false; // Asegúrate de desactivar el mute
-            videoElement.volume = 1.0;  // Volumen al máximo
-
-            // Intentar reproducir el video automáticamente con sonido
-            const playPromise = videoElement.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(error => {
-                    console.warn('Autoplay con sonido bloqueado por el navegador:', error);
-                    videoElement.muted = true; // Activa mute si hay error
-                });
-            }
+            videoElement.play();
         });
     });
 
