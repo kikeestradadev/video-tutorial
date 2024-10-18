@@ -5,15 +5,17 @@ var _internalModule = _interopRequireDefault(require("./modules/internalModule")
 var _tutorialNavSlider = _interopRequireDefault(require("./modules/tutorialNavSlider"));
 var _tutorialCategorySlider = _interopRequireDefault(require("./modules/tutorialCategorySlider"));
 var _internalModal = _interopRequireDefault(require("./modules/internalModal"));
+var _internalModalCategory = _interopRequireDefault(require("./modules/internalModalCategory"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 (function () {
   (0, _internalModule["default"])();
   (0, _tutorialNavSlider["default"])();
   (0, _tutorialCategorySlider["default"])();
   (0, _internalModal["default"])();
+  (0, _internalModalCategory["default"])();
 })();
 
-},{"./modules/internalModal":2,"./modules/internalModule":3,"./modules/tutorialCategorySlider":4,"./modules/tutorialNavSlider":5}],2:[function(require,module,exports){
+},{"./modules/internalModal":2,"./modules/internalModalCategory":3,"./modules/internalModule":4,"./modules/tutorialCategorySlider":5,"./modules/tutorialNavSlider":6}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37,19 +39,9 @@ var internalModal = function internalModal() {
       // Actualiza la fuente del video en el modal
       videoSource.src = videoUrl;
 
-      // Espera a que la fuente se cargue y reproduce con sonido
+      // Recarga el video y lo reproduce automáticamente al abrir el modal
       videoElement.load();
-      videoElement.muted = false; // Asegúrate de desactivar el mute
-      videoElement.volume = 1.0; // Volumen al máximo
-
-      // Intentar reproducir el video automáticamente con sonido
-      var playPromise = videoElement.play();
-      if (playPromise !== undefined) {
-        playPromise["catch"](function (error) {
-          console.warn('Autoplay con sonido bloqueado por el navegador:', error);
-          videoElement.muted = true; // Activa mute si hay error
-        });
-      }
+      videoElement.play();
     });
   });
 
@@ -72,12 +64,59 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
+var internalModalCategory = function internalModalCategory() {
+  // Selecciona todos los ítems del slider de categoría
+  var categorySliderItems = document.querySelectorAll('.tutorial-category-slider__item');
+
+  // Selecciona los elementos del modal que cambiarán
+  var videoElement = document.getElementById('videoElement');
+  var videoSource = document.getElementById('videoSource');
+
+  // Añade un event listener a cada ítem del slider de categoría
+  categorySliderItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      // Obtén la URL del video desde el atributo data-video-url
+      var videoUrl = item.getAttribute('data-video-url');
+      if (videoUrl) {
+        // Actualiza la fuente del video en el modal
+        videoSource.src = videoUrl;
+
+        // Recarga el video y lo reproduce automáticamente con sonido
+        videoElement.load();
+        videoElement.muted = false; // Asegúrate de que el audio esté activado
+        videoElement.volume = 1.0; // Volumen al máximo
+        videoElement.play()["catch"](function (error) {
+          console.warn('Autoplay con sonido bloqueado:', error);
+        });
+      }
+    });
+  });
+
+  // Limpia el video cuando se cierra el modal
+  var modal = document.getElementById('exampleModalToggle1');
+  modal.addEventListener('hidden.bs.modal', function () {
+    videoElement.pause(); // Pausa el video
+    videoElement.currentTime = 0; // Reinicia el tiempo del video
+    videoSource.src = ''; // Limpia la fuente del video
+  });
+};
+
+// Exportar la función para usarla en tu proyecto
+var _default = exports["default"] = internalModalCategory;
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 var internalModule = function internalModule() {
   console.log('Hola internal Module');
 };
 var _default = exports["default"] = internalModule;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -109,7 +148,7 @@ var tutorialCategorySlider = function tutorialCategorySlider() {
 };
 var _default = exports["default"] = tutorialCategorySlider;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
