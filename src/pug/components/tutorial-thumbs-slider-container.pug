@@ -1,34 +1,7 @@
 section(class='top-slider-thumbs-container')
 	div(class='swiper tutorial-single-slider')
 		div(class='swiper-wrapper')
-			- for (var i = 0; i < thumbSlider.length; i++)
-				- var item = thumbSlider[i]
-				div(class='swiper-slide tutorial-single-slider__item')
-					div(class='tutorial-single-slider__container')
-						img(src=item.mainimg, class='tutorial-single-slider__bg-img', alt="")
-						div(class='tutorial-single-slider__text-container')
-							span(class='tutorial-single-slider__category')
-								| #{item.category} 
-							span(class='tutorial-single-slider__title')
-								| #{item.title} 
-							span(class='tutorial-single-slider__sub-title from-lg')= item.subtitle1
-							span(class='tutorial-single-slider__description from-lg')= item.description1
-							span(
-                                class='tutorial-single-slider__play' 
-                                data-bs-toggle='modal' 
-                                data-bs-target='#exampleModalToggle1' 
-                                data-video-url=item.ctaurl
-                            ) 
-								img(src="images/play_arrow.svg", alt="") 
-								| #{item.ctatitle}
-							span(class='tutorial-single-slider__sub-title from-lg')= item.subtitle2
-							span(class='tutorial-single-slider__description from-lg')= item.description2
+			
 	div(class='swiper tutorial-thumbs-slider')
 		div(class='swiper-wrapper')
-			- for (var i = 0; i < thumbSlider.length; i++)
-				- var item = thumbSlider[i]
-				div(class='swiper-slide tutorial-thumbs-slider__item')
-					img(src=item.thumbimage, alt="")
-					div(class='tutorial-thumbs-slider__text-container')
-						span(class='tutorial-thumbs-slider__item-title')= item.category
-						span(class='tutorial-thumbs-slider__item-description')= item.title
+			

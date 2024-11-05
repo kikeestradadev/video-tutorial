@@ -1,15 +1,11 @@
 import internalModule from './modules/internalModule';
-import tutorialNavSlider from './modules/tutorialNavSlider';
-import tutorialCategorySlider from './modules/tutorialCategorySlider';
-import internalModal from './modules/internalModal';
-import internalModalCategory from './modules/internalModalCategory';
+import tutorialNavSliderApi from './modules/tutorialNavSliderApi';
+import tutorialCategorySliderApi from './modules/tutorialCategorySliderApi';
 
 
 
 (()=>{
 	internalModule(); 
-	tutorialNavSlider(); 
-	tutorialCategorySlider();
-	internalModal();
-	internalModalCategory();
+	tutorialNavSliderApi(); 
+	tutorialCategorySliderApi();
 })();

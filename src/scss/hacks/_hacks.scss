@@ -4,22 +4,22 @@
 
 
 /* Asegura que la modal y su contenido ocupen todo el espacio */
-.modal-dialog {
-    max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    width: 100%;
-}
+// .modal-dialog {
+//     max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+//     width: 100%;
+// }
 
-.modal-content {
-    height: 100%; /* Asegura que llene el alto de la modal */
-}
+// .modal-content {
+//     height: 100%; /* Asegura que llene el alto de la modal */
+// }
 
 .modal-body {
     padding: 0; /* Elimina espacios extra */
 }
 
 /* Ajusta el video para que ocupe todo el espacio disponible */
-.video-js {
-    width: 100% !important;
-    height: calc(100vh - 100px) !important; /* Ocupa todo el alto de la pantalla */
-    object-fit: cover; /* Asegura que el video mantenga su proporción */
-}
+// .video-js {
+//     width: 100% !important;
+//     height: calc(100vh - 100px) !important; /* Ocupa todo el alto de la pantalla */
+//     object-fit: cover; /* Asegura que el video mantenga su proporción */
+// }
